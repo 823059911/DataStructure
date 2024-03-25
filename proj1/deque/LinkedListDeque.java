@@ -1,7 +1,7 @@
 package deque;
 public class LinkedListDeque<T>  {
-    private GenericNode front;
-    private GenericNode back;
+    public GenericNode front;
+    public GenericNode back;
     int size;
     public class GenericNode {
         public GenericNode prev;
