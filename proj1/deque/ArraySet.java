@@ -6,8 +6,6 @@ public class ArraySet<T> {
 int size;
 T[]items;
     public ArraySet() {
-        items=(T[])new object[100];
-        size=0;
     }
 
     /* Returns true if this map contains a mapping for the specified key.
