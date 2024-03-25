@@ -55,12 +55,10 @@ public class LinkedListDequeTest {
     public void removeEmptyTest() {
         LinkedListDeque<Integer> lld1 = new LinkedListDeque<>();
         lld1.addFirst(3);
-
         lld1.removeLast();
         lld1.removeFirst();
         lld1.removeLast();
         lld1.removeFirst();
-
         int size = lld1.size();
         String errorMsg = "  Bad size returned when removing from empty deque.\n";
         errorMsg += "  student size() returned " + size + "\n";

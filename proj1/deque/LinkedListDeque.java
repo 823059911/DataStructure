@@ -13,23 +13,10 @@ public class LinkedListDeque<T>  {
             this.next = next;
         }
     }
-    public LinkedListDeque(LinkedListDeque other) {
-        front = new GenericNode(front, null, null);
-        back = new GenericNode(front, null, null);
-        front.next = back;
-        size = 0;
-        // 深拷贝其他链表的元素
-        GenericNode currentOther = other.front.next;
-        while (currentOther != other.back) {
-            addLast(currentOther.item);
-            currentOther = currentOther.next;
-        }
-    }
-
-    public LinkedListDeque() {//将front和back定义成哨兵节点
-        front = new GenericNode(null, null,back);
-        back = new GenericNode(front, null, null);
-        front.next = back;
+    public LinkedListDeque() {
+        back = new GenericNode(null, null, null);
+        front = new GenericNode(null, null, back);
+        back.prev = front;
         size = 0;
     }
     public void addLast(T item) {
@@ -84,14 +71,14 @@ public class LinkedListDeque<T>  {
         return front.next==back&&back.prev==front;
     }
 
-    public T get(int index){
+    public T get(int index) {
         if (index >= size || index < 0) {
             return null;  // 索引越界
         }
         //get方法不可以影响原链表,应创建一个新的指引变量
-        GenericNode sentinel=front.next;
-        for(int i=0;i<=index;i++){
-            sentinel=sentinel.next;
+        GenericNode sentinel = front.next;
+        for (int i = 0; i < index; i++) {
+            sentinel = sentinel.next;
         }
         return sentinel.item;
     }
