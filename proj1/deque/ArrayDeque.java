@@ -37,19 +37,53 @@ public class ArrayDeque<T> {
             nextFirst=items.length-1;
         }
     }
+    public T removeFirst() {
+        if (size == 0) {
+            return null;
+        }
+        if (nextFirst == items.length - 1) {
+            nextFirst = 0;
+        } else {
+            nextFirst++;
+        }
+        T removedItem = items[nextFirst];
+        items[nextFirst] = null;
+        size--;
+        return removedItem;
+    }
+    public T removeLast(){
+        if (size == 0) {
+            return null;
+        }
+    if(nextLast==0){
+        nextLast = items.length-1;
+    } else {
+        nextLast--;
+        }
+    T removedItem = items[nextLast];
+    items[nextLast]=null;
+    size--;
+    return removedItem;
+    }
+
+    public int size () {
+            return size;
+        }
+        public boolean IsEmpty () {
+            return size == 0 ? true : false;
+        }
     public T get(int num) {
         return items[num];
     }
     public static void main(String[] args) {
         ArrayDeque<Integer> items = new ArrayDeque<>();
-        items.addLast(1);
-        items.addLast(2);
-        items.addLast(3);
-        items.addLast(4);
+        items.addFirst(1);
+        items.addFirst(2);
+        items.addFirst(3);
+        items.addFirst(4);
         items.addLast(5);
-        items.addLast(6);
-        items.addLast(7);
-        items.addLast(8);
+        items.removeFirst();
+        items.removeLast();
         for(int i=0;i<8;i++){
             System.out.println(items.get(i));
         }
