@@ -69,7 +69,7 @@ public class ArrayDeque<T> {
     public int size () {
             return size;
         }
-        public boolean IsEmpty () {
+        public boolean isEmpty () {
             return size == 0 ? true : false;
         }
     public T get(int num) {
