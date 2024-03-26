@@ -53,7 +53,6 @@ public class SLList<Item> {
 
 		p.next = new IntNode(x, null);
 	}
-
 	/** returns last item in the list */
 	public Item getLast() {
 		IntNode p = sentinel;
@@ -65,8 +64,6 @@ public class SLList<Item> {
 
 		return p.item;
 	}
-
-
 	/** Returns the size of the list. */
 	public int size() {
 		return size;
@@ -77,5 +74,12 @@ public class SLList<Item> {
 		SLList L = new SLList();
 		L.addLast(20);
 		System.out.println(L.size());
+	}
+	public Item get(int index) {
+		IntNode p = sentinel.next;
+		for (int i = 0; i < index; i++) {
+			p = p.next;
+		}
+		return p.item;
 	}
 }
