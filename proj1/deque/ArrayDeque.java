@@ -1,6 +1,6 @@
 package deque;
 
-public class ArrayDeque<T> {
+public class ArrayDeque<T> implements Deque<T>{
     private int size;
     private int nextFirst;
     private int nextLast;
@@ -13,6 +13,7 @@ public class ArrayDeque<T> {
         nextLast = 4;
     }
 
+    @Override
     public void addLast(T x) {
         if (size == items.length) {
             return;
@@ -25,6 +26,7 @@ public class ArrayDeque<T> {
             nextLast=0;
         }
     }
+    @Override
     public void addFirst(T x) {
         if (size == items.length) {
             return;
@@ -37,6 +39,7 @@ public class ArrayDeque<T> {
             nextFirst=items.length-1;
         }
     }
+    @Override
     public T removeFirst() {
         if (size == 0) {
             return null;
@@ -51,6 +54,7 @@ public class ArrayDeque<T> {
         size--;
         return removedItem;
     }
+    @Override
     public T removeLast(){
         if (size == 0) {
             return null;
@@ -66,28 +70,29 @@ public class ArrayDeque<T> {
     return removedItem;
     }
 
+    @Override
     public int size () {
             return size;
         }
-        public boolean isEmpty () {
-            return size == 0 ? true : false;
-        }
-
-    public T get(int num) {
-        return items[num];
+    @Override
+    public T get(int index) {
+        return items[index];
     }
-
+    @Override
+    public void printDeque(){
+        for(int i = 0;i <items.length;i++){
+            if(items[i]!=null){
+                System.out.println(items[i]);
+            }
+        }
+    }
     public static void main(String[] args) {
         ArrayDeque<Integer> items = new ArrayDeque<>();
         items.addFirst(1);
         items.addFirst(2);
         items.addFirst(3);
         items.addFirst(4);
-        items.addLast(5);
-        items.removeFirst();
-        items.removeLast();
-        for(int i=0;i<8;i++){
-            System.out.println(items.get(i));
-        }
+        items.printDeque();
+        System.out.println(items.isEmpty());
     }
 }

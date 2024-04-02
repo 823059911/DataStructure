@@ -1,5 +1,5 @@
 package deque;
-public class LinkedListDeque<T> {
+public class LinkedListDeque<T> implements Deque<T> {
     public GenericNode front;
     public GenericNode back;
     int size;
@@ -19,22 +19,25 @@ public class LinkedListDeque<T> {
         back.prev = front;
         size = 0;
     }
+    @Override
     public void addLast(T item) {
         GenericNode newNode = new GenericNode(back.prev, item, back);
         back.prev.next = newNode; // 首先更新现有的最后一个节点的 next 引用
         back.prev = newNode; // 然后更新 back 的 prev 引用
         size++;
     }
-
+    @Override
     public void addFirst(T item){
         GenericNode newNode=new GenericNode (front,item,front.next);
         front.next.prev=newNode;
         front.next=newNode;
         size++;
     }
+    @Override
     public int size(){
         return size;
     }
+    @Override
     public T removeFirst(){
         //remove之前需要检测是不是空表
         if(front.next==back){
@@ -51,6 +54,7 @@ public class LinkedListDeque<T> {
         size--;
         return removedNode.item;
     }
+    @Override
     public T removeLast(){
         //remove之前需要检测是不是空表
         if(front.next==back){
@@ -67,10 +71,7 @@ public class LinkedListDeque<T> {
         size--;
         return removedNode.item;
     }
-    public boolean isEmpty(){
-        return front.next==back&&back.prev==front;
-    }
-
+    @Override
     public T get(int index) {
         if (index >= size || index < 0) {
             return null;  // 索引越界
@@ -82,6 +83,7 @@ public class LinkedListDeque<T> {
         }
         return sentinel.item;
     }
+    @Override
     public void printDeque(){
         //当循环到最后一个元素时，get(i)的i对应的是size-1
         for(int i=0;i<size;i++){
