@@ -72,9 +72,11 @@ public class ArrayDeque<T> {
         public boolean isEmpty () {
             return size == 0 ? true : false;
         }
+
     public T get(int num) {
         return items[num];
     }
+
     public static void main(String[] args) {
         ArrayDeque<Integer> items = new ArrayDeque<>();
         items.addFirst(1);
