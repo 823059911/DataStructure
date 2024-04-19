@@ -56,12 +56,10 @@ public class SLList<Item> {
 	/** returns last item in the list */
 	public Item getLast() {
 		IntNode p = sentinel;
-
 		/* Advance p to the end of the list. */
 		while (p.next != null) {
 			p = p.next;
 		}
-
 		return p.item;
 	}
 	/** Returns the size of the list. */
