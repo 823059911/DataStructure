@@ -15,7 +15,6 @@ public class IsPalindrome {
         }
         return temp.equals(a)?true:false;
     }
-
     public static void main(String[] args) {
         IsPalindrome a=new IsPalindrome();
         boolean b=a.isPalindrome(3443);
